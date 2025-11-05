@@ -1,0 +1,8 @@
+<div>
+  @for (n of users; track n.id) {
+    <button >
+        <img [src]="getImagePath(n.id)" [alt]="n.name" />
+        <span>{{ n.name }}</span>
+    </button>
+  }
+</div>
