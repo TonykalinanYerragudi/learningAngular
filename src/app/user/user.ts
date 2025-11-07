@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { DUMMY_USERS } from '../dummy-users';
 import { CommonModule } from '@angular/common';
 
-
+const randomIndex = Math.floor(Math.random() * 6);
 @Component({
   selector: 'app-user',
   imports: [CommonModule],
@@ -11,12 +11,20 @@ import { CommonModule } from '@angular/common';
 })
 export class User {
   users = DUMMY_USERS;
+  selectedUser = signal(DUMMY_USERS[randomIndex]);
 
   getImagePath(id: any){
-    const selectedUser = this.users.find(i => i.id === id);
-    if (selectedUser && selectedUser.avatar) {
-      return 'assets/users/' + selectedUser.avatar;
+    const userImagePath = this.users.find(i => i.id === id);
+    if (userImagePath && userImagePath.avatar) {
+      return 'assets/users/' + userImagePath.avatar;
     }
-    return '';
+    return 'no user found!';
+  }
+
+  //for understanding singals and event binding
+  onSelectUser(){
+    const randomIndex = Math.floor(Math.random() * 6);
+    this.selectedUser.set(DUMMY_USERS[randomIndex]);
+    console.log(this.selectedUser);
   }
 }

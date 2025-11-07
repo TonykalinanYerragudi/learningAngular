@@ -1,8 +1,11 @@
 <div>
   @for (n of users; track n.id) {
-    <button >
+    <button (click)="onSelectUser()" >
         <img [src]="getImagePath(n.id)" [alt]="n.name" />
         <span>{{ n.name }}</span>
     </button>
   }
 </div>
+<!-- for understanding singals and event binding -->
+<img [src]="'assets/users/' + selectedUser().avatar" 
+      [alt]="selectedUser().name">
