@@ -1,11 +1,27 @@
 <div>
+  <button (click)="onSelectUser()">
+    <img [src]="getImagePath()" [alt]="name" />
+    <span>{{ name }}</span>
+  </button>
+</div>
+
+
+<!-- <div>
+  <button (click)="onSelectUser()">
+    <img [src]="getImagePath(selectedUser().id)" [alt]="selectedUser().name" />
+    <span>{{ selectedUser().name }}</span>
+  </button>
+</div> -->
+
+<!-- looping -->
+<!-- <div>
   @for (n of users; track n.id) {
     <button (click)="onSelectUser()" >
         <img [src]="getImagePath(n.id)" [alt]="n.name" />
         <span>{{ n.name }}</span>
     </button>
   }
-</div>
+</div> -->
 <!-- for understanding singals and event binding -->
-<img [src]="'assets/users/' + selectedUser().avatar" 
-      [alt]="selectedUser().name">
+<!-- <img [src]="'assets/users/' + selectedUser().avatar" 
+      [alt]="selectedUser().name"> -->
