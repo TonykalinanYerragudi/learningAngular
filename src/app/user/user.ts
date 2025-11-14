@@ -15,7 +15,7 @@ export class User {
   @Input({required: true}) avatar!: string;
   @Input({required: true}) name!: string;
 
-   @Output() select = new EventEmitter();
+  @Output() select = new EventEmitter<string>();
 
   // using output function
   //select = output<string>();
