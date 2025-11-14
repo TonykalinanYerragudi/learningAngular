@@ -1,4 +1,5 @@
-import { Component, Input, Output, EventEmitter, signal, input, computed } from '@angular/core';
+import { Component, Input, Output, EventEmitter, 
+  output, signal, input, computed } from '@angular/core';
 // import { DUMMY_USERS } from '../dummy-users';
 import { CommonModule } from '@angular/common';
 
@@ -14,7 +15,10 @@ export class User {
   @Input({required: true}) avatar!: string;
   @Input({required: true}) name!: string;
 
-  @Output() select = new EventEmitter();
+  // @Output() select = new EventEmitter();
+
+  // using output function
+  select = output<string>();
 
   // //using signal inputs
   // avatar = input.required<string>();
