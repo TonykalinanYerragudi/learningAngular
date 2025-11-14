@@ -15,10 +15,10 @@ export class User {
   @Input({required: true}) avatar!: string;
   @Input({required: true}) name!: string;
 
-  // @Output() select = new EventEmitter();
+   @Output() select = new EventEmitter();
 
   // using output function
-  select = output<string>();
+  //select = output<string>();
 
   // //using signal inputs
   // avatar = input.required<string>();
