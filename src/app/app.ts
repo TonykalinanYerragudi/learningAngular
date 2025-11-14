@@ -7,9 +7,13 @@ import { DUMMY_USERS } from './dummy-users';
   selector: 'app-root',
   imports: [Header, User],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
 export class App {
   protected readonly title = signal('learningAngular');
   users = DUMMY_USERS;
+
+  onSelectUser(id: string) {
+    console.log('selected User: ' + id);
+  }
 }
