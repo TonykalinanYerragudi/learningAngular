@@ -13,11 +13,11 @@ import { Tasks } from './tasks/tasks';
 export class App {
   protected readonly title = signal('learningAngular');
   users = DUMMY_USERS;
-  user = ''
+  userName?: string;
 
   onSelectUser(id: string) {
     // console.log('selected User: ' + id);
     const userselected = this.users.find(user => user.id === id);
-    this.user = userselected!.name;
+    this.userName = userselected!.name;
   }
 }

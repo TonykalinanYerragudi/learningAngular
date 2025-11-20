@@ -3,6 +3,17 @@ import { Component, Input, Output, EventEmitter,
 // import { DUMMY_USERS } from '../dummy-users';
 import { CommonModule } from '@angular/common';
 
+// type UserT = {
+//     id: string, 
+//     name: string, 
+//     avatar: string
+//   }
+
+interface IUser {
+  id: string, 
+  name: string, 
+  avatar: string
+}
 // const randomIndex = Math.floor(Math.random() * 6);
 @Component({
   selector: 'app-user',
@@ -11,9 +22,16 @@ import { CommonModule } from '@angular/common';
   styleUrl: './user.css',
 })
 export class User {
-  @Input({required: true}) id!: string;
-  @Input({required: true}) avatar!: string;
-  @Input({required: true}) name!: string;
+  // @Input({required: true}) id!: string;
+  // @Input({required: true}) avatar!: string;
+  // @Input({required: true}) name!: string;
+
+  @Input({required: true}) user!: IUser
+  // @Input({required: true}) user!: {
+  //   id: string, 
+  //   name: string, 
+  //   avatar: string
+  // }
 
   @Output() select = new EventEmitter<string>();
 
@@ -29,7 +47,7 @@ export class User {
   // })
 
   getImagePath(){
-    return 'assets/users/' + this.avatar;
+    return 'assets/users/' + this.user.avatar;
   }
 
   //avatar = input<string>('');
@@ -47,7 +65,7 @@ export class User {
 
   //for understanding singals and event binding
   onSelectUser(){
-    this.select.emit(this.id);
+    this.select.emit(this.user.id);
 
     // const randomIndex = Math.floor(Math.random() * 6);
     // this.selectedUser.set(DUMMY_USERS[randomIndex]);

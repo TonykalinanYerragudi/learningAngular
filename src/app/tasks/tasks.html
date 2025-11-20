@@ -1,8 +1,25 @@
-<div>
-  @if(!name){
-    <p>Tasks of that user</p>
-  }
-  @if(name){
-    <p>{{ name }}</p>
-  }
-</div>
+<section id="tasks">
+  <header>
+    <!-- @if(!name){
+      <p>Tasks of that user</p>
+    }
+    @if(name){ -->
+    <h2>{{ name }}'s Tasks</h2>
+    <!-- } -->
+    <menu>
+      <button>Add Task</button>
+    </menu>
+  </header>
+
+  <ul>
+    <li>
+      <app-task></app-task>
+    </li>
+    <li>
+      <app-task></app-task>
+    </li>
+    <li>
+      <app-task></app-task>
+    </li>
+  </ul>
+</section>
